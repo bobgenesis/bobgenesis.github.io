@@ -20,3 +20,23 @@ function openCity(evt, cityName) {
 }
 document.getElementById("defaultOpen").click();
 ////
+$(window).bind(
+  'touchmove',
+   function(e) {
+    e.preventDefault();
+  }
+);
+document.ontouchmove = function(event){
+event.preventDefault(); 
+}
+document.onTouchMove = function(e) {
+    e.stopPropagation(); e.stopImmediatePropagation();
+}
+document.addEventListener('gesturestart', function (e) {
+    e.preventDefault();
+});
+window.oncontextmenu = function(event) {
+     event.preventDefault();
+     event.stopPropagation();
+     return false;
+};

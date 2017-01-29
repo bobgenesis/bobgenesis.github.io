@@ -1,4 +1,24 @@
-//============================ On Page Load  ============================ //
+//============================ TESTING:  ============================ //
+$(window).bind(
+  'touchmove',
+   function(e) {
+    e.preventDefault();
+  }
+);
+document.ontouchmove = function(event){
+event.preventDefault(); 
+}
+document.onTouchMove = function(e) {
+    e.stopPropagation(); e.stopImmediatePropagation();
+}
+document.addEventListener('gesturestart', function (e) {
+    e.preventDefault();
+});
+window.oncontextmenu = function(event) {
+     event.preventDefault();
+     event.stopPropagation();
+     return false;
+};
 //============================ Checks whether storage works (private mode?)  ============================ //
 if (typeof(Storage) !== "undefined") {
 } else {
@@ -48,12 +68,19 @@ document.getElementById("msgPBACR").style.display = "block";
 //___________________GAME FUNCTION / CHECKER___________________ //
 //___________________GAME MANGER___________________ //
 // Bob count management//
+// Fixes undefined NaN bug
+if (localStorage.bobs == 'NaN') {   
+localStorage.bobs = 0;
+}
+else {
+    localStorage.bobs = localStorage.bobs
+}
 function Bob() {
     if(typeof(Storage) !== "undefined") {
         if (localStorage.bobs) {
             localStorage.bobs = Number(localStorage.bobs)+1; ConvertNUM(); clearTimeout(this.cBc); CheckBC(); Bps();
         } else {
-            localStorage.bobs = 1;
+            localStorage.bobs = 0;
         }
         document.getElementById("cbob").innerHTML = +localStorage.bobs;
 }   
@@ -119,7 +146,7 @@ alert("Not enough 'Bob'");
 function buyautoclick() { 
 if (20 <= parseInt(localStorage.bobs)) {
 localStorage.bobs = Number(localStorage.bobs)-20;
-document.getElementById("cbob").innerHTML = localStorage.bobs;
+document.getElementById("cbob").innerHTML = parseInt(localStorage.bobs);
 localStorage.autoclick = 2;
 document.getElementById("autoclickshop").style.display = "none";
 document.getElementById("autoclickshopbrought").style.display = "block";
@@ -202,24 +229,30 @@ function openCity(evt, cityName) {
 //============================ Jquery============================ //
 $(function(){
 $('#Bob').mouseenter(function(){
-    $("#Bob").css({"transform": "scale(0.9)", "opacity": "0.96"});
+    $("#Bob").css({"transform": "scale(1.1)", "opacity": "0.96"});
 });
-$( "#Bob" ).bind( "mousedown touchstart", function(e){ Bob();
+$( "#Bob" ).mousedown(function(){ Bob();
     $("#Bob").css({"transform": "scale(1)", "opacity": "1"});
 });
-$( "#Bob" ).bind( "mouseup touchend", function(e){
-    $("#Bob").css({"transform": "scale(0.9)", "opacity": "1"});
+$( "#Bob" ).mouseup(function(){
+    $("#Bob").css({"transform": "scale(1.1)", "opacity": "1"});
 });
 $( "#Bob" ).mouseleave(function() {
     $("#Bob").css({"transform": "scale(1)", "opacity": "0.96"});
 });
+$( "#Bob" ).touchstart(function(){ Bob();
+    $("#Bob").css({"transform": "scale(1.1)", "opacity": "1"});
+});
+$( "#Bob" ).touchend(function(){
+    $("#Bob").css({"transform": "scale(1)", "opacity": "1"});
+});
 });
 //jqurey +num animation//
-$("#clone").on('mousedown touchstart', function(e) {
+$("#clickarea").on('mousedown touchstart', function(e) {
     //var AClvlAC = parseInt(localStorage.AClvl);//
     //var pluseff = AClvlAC;//
     var pluseff = 1;
-    var obj = $("#clone").clone();
+    var obj = $("#clickarea").clone();
     $("body").append(obj);
     obj.html("+"+pluseff);
     obj.css('position','absolute');
@@ -252,7 +285,7 @@ document.getElementById("shop").addEventListener('click', OPENshop);
 document.getElementById("map").addEventListener("click", OPENmap);
 document.getElementById("news").addEventListener("click", OPENnews);
 document.getElementById("lore").addEventListener("click", OPENlore);
-document.getElementById("cbob").innerHTML = localStorage.bobs;
+document.getElementById("cbob").innerHTML = parseInt(localStorage.bobs);
 localStorage.CBC = 0;
 Bps();
 // sound //
@@ -261,46 +294,46 @@ $("#Bob").bind( "mouseup touchend", function(e){
 var audiobob = new Audio('bob.mp3');
 audiobob.play();
 });
-$("#shop").bind( "click tap", function(e){ 
+$("#shop").bind( "mousedown touchstart", function(e){e.preventDefault(); 
 var audioopen = new Audio('open.mp3');
 audioopen.play();
 });
-$("#closemenux").bind( "click tap", function(e){ 
+$("#closemenux").bind( "mousedown touchstart", function(e){e.preventDefault(); 
 var audioclose = new Audio('close.mp3');
 audioclose.play();
 });
-$("#map").bind( "mousedown touchstart", function(e){ 
+$("#map").bind( "mousedown touchstart", function(e){e.preventDefault(); 
 var audiobeep = new Audio('beep.mp3');
 audiobeep.play();
 });
-$("#news").bind( "mousedown touchstart", function(e){ 
+$("#news").bind( "mousedown touchstart", function(e){e.preventDefault(); 
 var audiobeep = new Audio('beep.mp3');
 audiobeep.play();
 });
-$("#lore").bind( "mousedown touchstart", function(e){ 
+$("#lore").bind( "mousedown touchstart", function(e){e.preventDefault();
 var audiobeep = new Audio('beep.mp3');
 audiobeep.play();
 });
-$("#btn-reset").bind( "mousedown touchstart", function(e){ 
+$("#btn-reset").bind( "mousedown touchstart", function(e){e.preventDefault(); 
 var audiobeep = new Audio('beep.mp3');
 audiobeep.play();
 });
-$("#defaultOpen").bind( "click tap", function(e){ 
+$("#defaultOpen").bind( "mousedown touchstart", function(e){e.preventDefault(); 
 var audiobob = new Audio('bob.mp3');
 audiobob.play();
 });
-$("#menuUP").bind( "click tap", function(e){ 
+$("#menuUP").bind( "mousedown touchstart", function(e){e.preventDefault(); 
 var audiobob = new Audio('bob.mp3');
 audiobob.play();
 });
-$("#menuS").bind( "click tap", function(e){ 
+$("#menuS").bind( "mousedown touchstart", function(e){e.preventDefault(); 
 var audiobob = new Audio('bob.mp3');
 audiobob.play();
 });
-$("#ACupgrade").bind( "click touchstart", function(e){
+$("#ACupgrade").bind( "mousedown touchstart", function(e){e.preventDefault();
 upgradeAC();
 });
-$("#autoclick").bind( "click touchstart", function(e){
+$("#autoclick").bind( "mousedown touchstart", function(e){e.preventDefault();
 buyautoclick();  
 });
 });

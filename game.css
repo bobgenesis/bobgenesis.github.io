@@ -2,14 +2,20 @@
 html {
 -ms-touch-action: manipulation;
 touch-action: manipulation;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 body{ 
-
+    overflow:hidden;
     background-color: black;
     background-image: url("background.jpg") ;
     background-repeat: repeat;
     height: 100%;
     filter: brightness(99%);
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 div.overlay {
     position: fixed;
@@ -29,7 +35,7 @@ hr {
  background-color: #f1f1f1;
 }
 
-#clone {
+#clickarea {
     color: white;
     font-family: Tahoma, Verdana, Segoe, sans-serif;
     font-weight: 900;
@@ -251,6 +257,8 @@ img.Bob { /* Bob! */
     content:url(bob.png);
     max-width: 100%;
     max-height: 100%;
+    width: 402px;
+    height: 241px;
     margin: auto;
     opacity: 0.93;
     position: absolute;
@@ -293,7 +301,9 @@ content:url(shine.png);
 /* ////////////////BOTTOM BAR//////////////////////// */
 .shop { /* Shop icon */ 
 content:url(shop.png);
-    max-width: 150px;
+    max-width: 100%;
+    max-height: 100%;
+    width: 150px;
     height: 150px;
     margin:auto;
     position:absolute; bottom:0; left: 0%;
@@ -302,7 +312,9 @@ content:url(shop.png);
 }
 .map  { /* map icon */
 content:url(map.png);
-    max-width: 150px;
+    max-width: 100%;
+    max-height: 100%;
+    width: 150px;
     height: 150px;
     margin:auto;
     position:absolute; bottom:0; left: 22%;
@@ -311,7 +323,9 @@ content:url(map.png);
 }
 .news { /* news  icon */
 content:url(news.png);
-    max-width: 150px;
+    max-width: 100%;
+    max-height: 100%;
+    width: 150px;
     height: 150px;
     margin:auto;
     position:absolute; bottom:0; right: 33%;
@@ -320,7 +334,9 @@ content:url(news.png);
 }
 .lore { /* lore icon */
 content:url(lore.png); 
-    max-width: 150px;
+    max-width: 100%;
+    max-height: 100%;
+    width: 150px;
     height: 150px;
     margin:auto;
     position:absolute; bottom:0; right: 0;
@@ -333,7 +349,9 @@ content:url(lore.png);
 /* ////////////////menu effects//////////////// */
 .shop:hover {
     transform: scale(1.05); 
-    max-width: 150px;
+    max-width: 100%;
+    max-height: 100%;
+    width: 150px;
     height: 150px;
     margin:auto;
     position:absolute; bottom:1vh; left:1vw;
@@ -342,7 +360,9 @@ content:url(lore.png);
 }
 .map:hover {
     transform: scale(1.05);
-    max-width: 150px;
+    max-width: 100%;
+    max-height: 100%;
+    width: 150px;
     height: 150px;
     margin:auto;
     position:absolute; bottom:1vh; left: 22%;
@@ -351,7 +371,9 @@ content:url(lore.png);
 }
 .news:hover {
     transform: scale(1.05);
-    max-width: 150px;
+    max-width: 100%;
+    max-height: 100%;
+    width: 150px;
     height: 150px;
     margin:auto;
     position:absolute; bottom:1vh; right: 33%;
@@ -360,7 +382,9 @@ content:url(lore.png);
 }
 .lore:hover {
     transform: scale(1.05);
-    max-width: 150px;
+    max-width: 100%;
+    max-height: 100%;
+    width: 150px;
     height: 150px;
     margin:auto;
     display: inline;
@@ -370,7 +394,9 @@ content:url(lore.png);
 /* active */
 .shop:active {
     transform: scale(1.05); 
-    max-width: 150px;
+    max-width: 100%;
+    max-height: 100%;
+    width: 150px;
     height: 150px;
     margin:auto;
     position:absolute; bottom:1vh; left:1vw;
@@ -379,7 +405,9 @@ content:url(lore.png);
 }
 .map:active {
     transform: scale(1.05);
-    max-width: 150px;
+    max-width: 100%;
+    max-height: 100%;
+    width: 150px;
     height: 150px;
     margin:auto;
     position:absolute; bottom:1vh; left: 22%;
@@ -388,7 +416,9 @@ content:url(lore.png);
 }
 .news:active {
     transform: scale(1.05);
-    max-width: 150px;
+    max-width: 100%;
+    max-height: 100%;
+    width: 150px;
     height: 150px;
     margin:auto;
     position:absolute; bottom:1vh; right: 33%;
@@ -397,7 +427,9 @@ content:url(lore.png);
 }
 .lore:active {
     transform: scale(1.05);
-    max-width: 150px;
+    max-width: 100%;
+    max-height: 100%;
+    width: 150px;
     height: 150px;
     margin:auto;
     display: inline;
@@ -415,7 +447,7 @@ ul.tab { /*  Menu Top Bar */
     overflow: hidden;
     border: 1px solid #4CAF50;
     background-color: #4CAF50;
-    width: 60%;
+    width: 70%;
     text-align: center;
     border-radius: 3px;
     border-top-width: 20px;
@@ -473,7 +505,7 @@ ul.tab li a:focus, .active {background-color: #f1f1f; transform: scale(1.3);}
     overflow: hidden;
     border: 1px solid #f1f1f1;
     background-color: #0;
-    width: 60%;
+    width: 70%;
     text-align: center;
     border-radius: 0px;
     border-top-width: 20px;
