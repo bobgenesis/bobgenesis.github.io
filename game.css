@@ -512,7 +512,7 @@ ul.tab li a:focus, .active {background-color: #f1f1f; transform: scale(1.3);}
     border-left-width: 20px;
     border-right-width: 20px;
     border-bottom-width: 20px;
-    height: 65vh;
+    height: 60%;
     top: 225px;
     position: absolute;
     left: 0;

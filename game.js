@@ -114,6 +114,12 @@ var AClvl = parseInt(localStorage.AClvl);
 localStorage.bobs = Number(localStorage.bobs)+AClvl;
 document.getElementById("cbob").innerHTML = +localStorage.bobs;
 ConvertNUM();
+if (localStorage.bobs == 'NaN') {   
+localStorage.bobs = 0;
+}
+else {
+    localStorage.bobs = localStorage.bobs
+}
 }
 function ACpriceinc() {
 var ACpilvl = parseInt(localStorage.AClvl);
@@ -264,7 +270,7 @@ $( "#Bob" ).touchend(function(){
 //	});
 //});//]]> 
 // Fix mobile bug
-    $("#clickarea").on('mousedown tap', function(e) {
+    $("#clickarea").on('mousedown', function(e) {
     var pluseff = 1;
     var obj = $("#clickarea").clone();
     $("body").append(obj);
@@ -297,13 +303,13 @@ document.getElementById("defaultOpen").click();
 ['click', 'touchstart'].forEach(function(e){
       document.getElementById("shop").addEventListener(e,OPENshop);
     });
-    ['click', 'touchstart'].forEach(function(e){
+    ['mousedown'].forEach(function(e){
       document.getElementById("map").addEventListener(e, OPENmap);
     });
-    ['click', 'touchstart'].forEach(function(e){
+    ['mousedown'].forEach(function(e){
       document.getElementById("news").addEventListener(e, OPENnews);
     });
-    ['click', 'touchstart'].forEach(function(e){
+    ['mousedown'].forEach(function(e){
       document.getElementById("lore").addEventListener(e, OPENlore);
     });
     ['click', 'touchstart'].forEach(function(e){
@@ -321,10 +327,10 @@ document.getElementById("defaultOpen").click();
       document.getElementById("menuS").addEventListener(e, function(){ 
       openCity(event, 'Setting');
  }, false);});
- $("#ACupgrade").bind( "mousedown touchstart", function(e){e.preventDefault();
+ $("#ACupgrade").bind( "mousedown", function(e){e.preventDefault();
 upgradeAC();
 });
-$("#autoclick").bind( "mousedown touchstart", function(e){e.preventDefault();
+$("#autoclick").bind( "mousedown", function(e){e.preventDefault();
 buyautoclick();  
 });
 $("#btn-reset").bind( "mousedown touchstart", function(e){e.preventDefault();
