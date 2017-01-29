@@ -1,0 +1,682 @@
+/* ////////////////(BODY)//////////////////////// */
+html {
+-ms-touch-action: manipulation;
+touch-action: manipulation;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+body{ 
+    overflow:hidden;
+    background-color: black;
+    background-image: url("background.jpg") ;
+    background-repeat: repeat;
+    height: 100%;
+    filter: brightness(99%);
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+div.overlay {
+    position: fixed;
+    top: 0px;
+    left: 0;
+    right: 0;
+    max-width: 100%;
+    height: 100%;
+    opacity: 1;
+    background:#7f7f7f;
+    background:rgba(0,0,0,0.75);
+    opacity:1;   
+}
+hr {
+ height: 2px;
+ border: 0;
+ background-color: #f1f1f1;
+}
+
+#clickarea {
+    color: white;
+    font-family: Tahoma, Verdana, Segoe, sans-serif;
+    font-weight: 900;
+    font-size: 134%   
+}
+#b20 {
+color: red;
+}
+#n20 {
+ color: red;
+}
+/* ////////////////(UN)Display stuff!//////////////////////// */
+#msgPBACR {
+    display:block;   
+}
+#overlay { /* 'Transparent-black overlay -blocks page' */
+    display: none;
+}
+#autoclickshop { /* Displays Autoclick (Shop) */
+    display:block;  
+}
+#autoclickshopbrought{ /* Displays Purchased! (Autoclick) */
+    display:none;
+    
+}
+#upgradeautoclick { /* Displays Autoclick [upgrade] */
+ display:none;   
+}
+#SHOPmenu { /* Displays SHOP */
+    display:none;
+    
+}
+#Nmb20 {
+    display:block;
+}
+/* ////////////////(UN)Display stuff!//////////////////////// */
+/* ================================================== */
+/* ================================================== */
+/* ////////////////BLACK BAR//////////////////////// */
+div.statusbar { /* TOP.count-Transparent-black bar -large*/
+    position: absolute;
+    top: 20px;
+    left: 0;
+    right: 0;
+    max-width: 100%;
+    height: 100px;
+    opacity: 1;
+    background:#7f7f7f;
+    background:rgba(0,0,0,0.7);
+    opacity:1;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    
+}
+.txtcbobc {
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-weight: bold;
+    font-size: 50px;
+    font-family: "Arial Black", Gadget, sans-serif;
+    text-align: center;
+    text-shadow: 3px 0px white;
+}
+.txtcbob {
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    font-family: "Arial Black", Gadget, sans-serif;
+    text-align: center;
+    display: none;
+}
+.bps {
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    font-family: "Arial Black", Gadget, sans-serif;
+    text-align: center;
+}
+.agebar { /* Top-Transparent-black bar -tiny */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    max-width: 100%;
+    height: 20px;
+    opacity: 1;
+    background:#7f7f7f;
+    background:rgba(0,0,0,0.7);
+    opacity:1;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    font-family: "Arial Black", Gadget, sans-serif;
+    text-align: left;
+    margin: 0;
+    padding: 0;
+
+}
+/* ////////////////BLACK BAR//////////////////////// */
+/* ================================================== */
+/* ================================================== */
+/* ////////////////FLYING BOB!!!//////////////////////// */
+.fb { position: absolute; /* Invisable barrier that spawns 'flying bob'  */
+    top: 120px;
+} /* ------------------------------------------------- */
+.fb1 {  /* Flying Bob spins 90deg and falls */
+    display:inline-block;
+    content:url(bob.png);
+    max-width: 100px;
+    max-height: 100px;
+    -webkit-animation: fb90 3s infinite ease-in-out;
+    opacity: 0;
+    -webkit-animation-delay: 1.5s;
+}
+.fb2 { /* Flying Bob spins 180deg and falls */
+    display:inline-block;
+    content:url(bob.png);
+    max-width: 100px;
+    max-height: 100px;
+    -webkit-animation: fb180 2s infinite linear;
+    opacity: 0;
+    -webkit-animation-delay: 1s;
+}
+.fb3 { /* Flying Bob spins 360deg and falls */
+    display:inline-block;
+    content:url(bob.png);
+    max-width: 100px;
+    max-height: 100px;
+    -webkit-animation: fb360 3s infinite linear;
+    -webkit-animation-delay: 0.5s;
+    opacity: 0;
+}
+.fb4 { /* Flying Bob spins 720deg and falls */
+    display:inline-block;
+    content:url(bob.png);
+    max-width: 100px;
+    max-height: 100px;
+    -webkit-animation: fb720 4s infinite linear;
+    -webkit-animation-delay: 2s;
+    opacity: 0;
+}
+.fb5 { /* Flying Bob spins 1080deg and falls */
+    display:inline-block;
+    content:url(bob.png);
+    max-width: 100px;
+    max-height: 100px;
+    -webkit-animation: fb1080 3s infinite linear;
+    -webkit-animation-delay: 2.5s;
+    opacity: 0;
+}
+.fb0 { /* Flying Bob spins 100 x (360) and falls */
+    display:inline-block;
+    content:url(bob.png);
+    max-width: 100px;
+    max-height: 100px;
+    -webkit-animation: fb36000 50s infinite linear;}
+    /* -------------------------------------------- */
+    /* Flying Bob animation */
+@-webkit-keyframes fb90 {
+    0% {opacity: 0;}
+    25% {opacity: 0.6;}
+    50% {opacity: 0.5;}
+    75% {opacity: 0.4;}
+    100% {-webkit-transform:translate(0px,60vh) rotate(90deg);opacity: 0;opacity: 0;}
+}
+@-webkit-keyframes fb180 {
+    0% {opacity: 0;}
+    25% {opacity: 0.6;}
+    50% {opacity: 0.5;}
+    75% {opacity: 0.4;}
+    100% {-webkit-transform:translate(0px,60vh) rotate(180deg);opacity: 0;}
+}
+@-webkit-keyframes fb270 {
+        0% {opacity: 0;}
+    25% {opacity: 0.6;}
+    50% {opacity: 0.5;}
+    75% {opacity: 0.4;}
+    100% {-webkit-transform:translate(0px,60vh) rotate(270deg);opacity: 0;}
+}
+@-webkit-keyframes fb360 {
+        0% {opacity: 0;}
+    25% {opacity: 0.6;}
+    50% {opacity: 0.5;}
+    75% {opacity: 0.4;}
+    100% {-webkit-transform:translate(0px,60vh) rotate(360deg);opacity: 0;}
+}
+@-webkit-keyframes fb720 {
+        0% {opacity: 0;}
+    35% {opacity: 0.6;}
+    50% {opacity: 0.5;}
+    75% {opacity: 0.4;}
+    100% {-webkit-transform:translate(0px,60vh) rotate(720deg);opacity: 0;}
+}
+@-webkit-keyframes fb1080 {
+        0% {opacity: 0;}
+    25% {opacity: 0.6;}
+    50% {opacity: 0.5;}
+    75% {opacity: 0.4;}
+    100% {-webkit-transform:translate(0px,60vh) rotate(1080deg);opacity: 0;}
+}
+@-webkit-keyframes fb36000 {
+        0% {opacity: 0;}
+    25% {opacity: 0.6;}
+    50% {opacity: 0.5;}
+    75% {opacity: 0.4;}
+    100% {-webkit-transform:translate(0px,60vh) rotate(36000deg);opacity: 0;}
+}
+/* ////////////////FLYING BOB!!!//////////////////////// */
+/* ================================================== */
+/* ================================================== */
+/* ////////////////BIG BOB//////////////////////// */
+img.Bob { /* Bob! */
+    content:url(bob.png);
+    max-width: 100%;
+    max-height: 100%;
+    width: 402px;
+    height: 241px;
+    margin: auto;
+    opacity: 0.93;
+    position: absolute;
+    display: inline;
+    top: 200px;
+    left: 0;
+    right: 0;
+    bottom: 200px;    
+}
+
+/* ////////////////BIG BOB//////////////////////// */
+/* ================================================== */
+/* ================================================== */
+/* ////////////////Spiny Shiny Shine//////////////////////// */
+.shine { /* The 'Shine' */
+content:url(shine.png);
+    opacity: 1.23;
+    max-width: 100%;
+    max-height: 100%;
+    margin: auto;
+    position: absolute;
+    display: inline;
+    top: 200px;
+    left: 0;
+    right: 0;
+    bottom: 200px;
+    filter: brightness(101%); /* Shiny! */
+}
+/* ---- */
+#shine { /* Spiny */
+-webkit-animation: spin 10s infinite linear;
+}
+@-webkit-keyframes spin{ /* Spiny animation */
+    0%{ -webkit-transform:rotate(0deg); -webkit-transform-origin:50% 50%; }
+    100%{ -webkit-transform:rotate(360deg); }
+}
+/* ////////////////Spiny Shiny Shine//////////////////////// */
+/* ================================================== */
+/* ================================================== */
+/* ////////////////BOTTOM BAR//////////////////////// */
+.shop { /* Shop icon */ 
+content:url(shop.png);
+    max-width: 100%;
+    max-height: 100%;
+    width: 150px;
+    height: 150px;
+    margin:auto;
+    position:absolute; bottom:0; left: 0%;
+    display: inline;
+    filter: brightness(101%);
+}
+.map  { /* map icon */
+content:url(map.png);
+    max-width: 100%;
+    max-height: 100%;
+    width: 150px;
+    height: 150px;
+    margin:auto;
+    position:absolute; bottom:0; left: 22%;
+    display: inline;
+    filter: brightness(101%);
+}
+.news { /* news  icon */
+content:url(news.png);
+    max-width: 100%;
+    max-height: 100%;
+    width: 150px;
+    height: 150px;
+    margin:auto;
+    position:absolute; bottom:0; right: 33%;
+    display: inline;
+    filter: brightness(101%);
+}
+.lore { /* lore icon */
+content:url(lore.png); 
+    max-width: 100%;
+    max-height: 100%;
+    width: 150px;
+    height: 150px;
+    margin:auto;
+    position:absolute; bottom:0; right: 0;
+    display: inline;
+    filter: brightness(101%);
+}
+/* ////////////////BOTTOM BAR//////////////////////// */
+/* ================================================== */
+/* ================================================== */
+/* ////////////////menu effects//////////////// */
+.shop:hover {
+    transform: scale(1.05); 
+    max-width: 100%;
+    max-height: 100%;
+    width: 150px;
+    height: 150px;
+    margin:auto;
+    position:absolute; bottom:1vh; left:1vw;
+    display: inline;
+    filter: brightness(101%);
+}
+.map:hover {
+    transform: scale(1.05);
+    max-width: 100%;
+    max-height: 100%;
+    width: 150px;
+    height: 150px;
+    margin:auto;
+    position:absolute; bottom:1vh; left: 22%;
+    display: inline;
+    filter: brightness(101%);
+}
+.news:hover {
+    transform: scale(1.05);
+    max-width: 100%;
+    max-height: 100%;
+    width: 150px;
+    height: 150px;
+    margin:auto;
+    position:absolute; bottom:1vh; right: 33%;
+    display: inline;
+    filter: brightness(101%);
+}
+.lore:hover {
+    transform: scale(1.05);
+    max-width: 100%;
+    max-height: 100%;
+    width: 150px;
+    height: 150px;
+    margin:auto;
+    display: inline;
+    position:absolute; bottom:1vh; right: 1vw;
+    filter: brightness(101%);
+}
+/* active */
+.shop:active {
+    transform: scale(1.05); 
+    max-width: 100%;
+    max-height: 100%;
+    width: 150px;
+    height: 150px;
+    margin:auto;
+    position:absolute; bottom:1vh; left:1vw;
+    display: inline;
+    filter: brightness(101%);
+}
+.map:active {
+    transform: scale(1.05);
+    max-width: 100%;
+    max-height: 100%;
+    width: 150px;
+    height: 150px;
+    margin:auto;
+    position:absolute; bottom:1vh; left: 22%;
+    display: inline;
+    filter: brightness(101%);
+}
+.news:active {
+    transform: scale(1.05);
+    max-width: 100%;
+    max-height: 100%;
+    width: 150px;
+    height: 150px;
+    margin:auto;
+    position:absolute; bottom:1vh; right: 33%;
+    display: inline;
+    filter: brightness(101%);
+}
+.lore:active {
+    transform: scale(1.05);
+    max-width: 100%;
+    max-height: 100%;
+    width: 150px;
+    height: 150px;
+    margin:auto;
+    display: inline;
+    position:absolute; bottom:1vh; right: 1vw;
+    filter: brightness(101%);
+}
+/* ////////////////menu effects//////////////// */
+/* ================================================== */
+/* ================================================== */
+/* ////////////////MENU//////////////////////// */
+ul.tab { /*  Menu Top Bar */
+    list-style-type: none;
+    margin: auto;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #4CAF50;
+    background-color: #4CAF50;
+    width: 70%;
+    text-align: center;
+    border-radius: 3px;
+    border-top-width: 20px;
+    border-left-width: 20px;
+    border-right-width: 20px;
+    border-bottom-width: 20px;
+    top: 120px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    opacity:0.99;   
+}
+
+/* Menu top-bar *must be center* */
+ul.tab li {display:inline-block;
+background-color: 0;
+margin: 0 23px 0 0;
+transform: scale(0.9);
+
+
+}
+.tablinks {}
+/* Tab style */
+ul.tab li a {
+    font-weight: bold;
+    font-family: "Arial Black", Gadget, sans-serif;
+    text-shadow: 1px 0px white;
+    display: inline-block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 28px;
+    text-align: center;
+    border-radius: 0px;
+    border: 1px solid #f1f1f1;
+    background-color: #fff;
+}
+ul.tab li a:hover {
+transform: scale(1.1);    
+}
+/* background color of links on hover */
+ul.tab li a:hover {background-color: #f1f1f;}
+
+
+/* Create an active/current tablink class */
+ul.tab li a:focus, .active {background-color: #f1f1f; transform: scale(1.3);}
+
+/* Style the tab content */
+.tabcontent {
+    list-style-type: none;
+    margin: auto;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #f1f1f1;
+    background-color: #0;
+    width: 70%;
+    text-align: center;
+    border-radius: 0px;
+    border-top-width: 20px;
+    border-left-width: 20px;
+    border-right-width: 20px;
+    border-bottom-width: 20px;
+    height: 65vh;
+    top: 225px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    background-color: white;
+    opacity:0.99;
+    font-weight: bold;
+    font-family: "Arial Black", Gadget, sans-serif;
+    text-shadow: 1px 0px white;
+    display: inline-block;
+    text-align: center;
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1),0px 0px 0px 1px rgba(0, 0, 0, 0.19);
+    overflow: scroll;
+}
+.closemenu {
+    text-decoration:none;
+    font-family:Arial Black, Gadget,sans-serif;
+    font-size: 50px;
+    color: black;
+    font-weight: bold;
+    float: right;
+    overflow: hidden;
+}
+h1{
+    text-decoration:none;
+    font-family:Arial Black, Gadget,sans-serif;
+    font-size: 60px;
+    color: #4CAF50;
+    font-weight: bold;
+    
+}
+h2 {
+    text-decoration:none;
+    font-family:Arial Black, Gadget,sans-serif;
+    font-size: 25px;
+    color: black;
+    font-weight: bold;
+    
+}
+h3{
+    text-decoration:none;
+    font-family:Arial Black, Gadget,sans-serif;
+    font-size: 30px;
+    color: white;
+    transform: scale(1.1);
+    
+}
+h4 {
+    text-decoration:none;
+    font-family:Arial Black, Gadget,sans-serif;
+    font-size: 40px;
+    color: green;
+    font-weight: bold;
+    
+}
+.regtext{
+    color:red;
+    font-size:65px;
+    font-weight: bold;
+    font-family:Arial Black, Gadget, sans-serif;
+}
+.rstext {
+    font-size:70px;
+    font-family:Arial Black, Gadget, sans-serif;
+    font-weight: bold;
+}
+.AClevel {
+    text-decoration:none;
+    font-family:Arial Black, Gadget,sans-serif;
+    font-size: 40px;
+    color: #8bc34a;
+    font-weight: bold;   
+}
+.AClearn {
+    text-decoration:none;
+    font-family:Arial Black, Gadget,sans-serif;
+    font-size: 20px;
+    color: grey;
+    font-weight: bold;   
+}
+.ACug {
+text-decoration:none;
+    font-family:Arial Black, Gadget,sans-serif;
+    font-size: 30px;
+    color: #8bc34a;
+    font-weight: bold;       
+}
+.ACcost {
+text-decoration:none;
+    font-family:Arial Black, Gadget,sans-serif;
+    font-size: 30px;
+    color: black;
+    font-weight: bold; 
+    
+}
+
+/* ////////////////MENU//////////////////////// */
+/* ================================================== */
+/* ================================================== */
+/* ////////////////Button//////////////////////// */
+#btn-reset {
+    border-radius: 2px;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    background-color: #f44336;
+    border-radius: 50%;
+    border: none;
+    box-shadow: 0 9px #999;
+    cursor: pointer;
+    display: inline-block;
+    padding: 15px 25px;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+}
+#autoclick{
+    border-radius: 2px;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    background-color: #4CAF50;
+    cursor: pointer;
+}
+.btn-AC{
+    border-radius: 2px;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    background-color: #4CAF50;
+    cursor: pointer;
+}
+/* HOVER */
+#btn-reset:hover { 
+transform: scale(1.5);
+}
+#btn-reset:active {
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+  transform: scale(1.4);
+}
+#autoclick:hover {
+    transform: scale(1.1);
+}
+#autoclick:active {
+    transform: scale(1.0);
+}
+.btn-AC:hover {
+    transform: scale(1.1);
+}
+.btn-AC:active {
+    transform: scale(1.0);
+}
+/* ////////////////Button//////////////////////// */
+/* ================================================== */
+/* ================================================== */
+/* Color
+Green: #4CAF50
+Light Green: #8bc34a
+Light grey: #f1f1f1
+*/
